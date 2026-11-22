@@ -1,199 +1,288 @@
+
+/* =========================================
+   FOCUSBOARD SIDEBAR — FIGMA MATCH
+========================================= */
+
 .sidebar {
-  width: var(--sidebar-width);
+  width: 240px;
+  min-width: 240px;
+  height: 100vh;
   min-height: 100vh;
-  background: var(--navy-sidebar);
-  color: var(--gray-300);
-  display: flex;
-  flex-direction: column;
-  padding: 24px 16px;
   position: sticky;
   top: 0;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px 14px 18px;
+
+  background: #ffffff;
+  color: #26324b;
+  border-right: 1px solid #edf0f6;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  z-index: 40;
 }
+
+/* Brand */
 
 .sidebar__brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 4px 12px 24px;
-  color: var(--white);
+
+  padding: 4px 8px 30px;
+
+  color: #17233d;
 }
 
 .sidebar__brand-icon {
   width: 34px;
   height: 34px;
-  border-radius: 10px;
-  background: var(--green-500);
-  color: var(--white);
+  min-width: 34px;
+
   display: grid;
   place-items: center;
-  flex-shrink: 0;
+
+  background: #6558f5;
+  color: #ffffff;
+
+  border-radius: 9px;
+}
+
+.sidebar__brand-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .sidebar__brand-name {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+  color: #17233d;
 }
 
 .sidebar__brand-tag {
-  font-size: 11px;
-  color: var(--gray-400);
-  font-weight: 500;
+  margin-top: 2px;
+  font-size: 10px;
+  font-weight: 400;
+  color: #8a94a8;
 }
 
+/* Menu heading */
+
 .sidebar__section-label {
-  font-size: 11px;
-  font-weight: 600;
+  padding: 0 10px;
+  margin: 0 0 10px;
+
+  font-size: 9px;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gray-400);
-  padding: 0 12px;
-  margin: 8px 0 8px;
+
+  color: #9aa3b5;
 }
+
+/* Navigation */
 
 .sidebar__nav {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   flex: 1;
 }
 
 .sidebar__link {
+  width: 100%;
+  min-height: 36px;
+
   display: flex;
   align-items: center;
-  gap: 12px;
-  width: 100%;
-  padding: 10px 12px;
+  gap: 10px;
+
+  padding: 9px 11px;
+
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: 7px;
+
   background: transparent;
-  color: var(--gray-300);
-  font-size: 14px;
+  color: #65718a;
+
+  font-family: inherit;
+  font-size: 12px;
   font-weight: 500;
   text-align: left;
-  transition: background 0.15s ease, color 0.15s ease;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.sidebar__link svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  color: #8490a5;
+  stroke-width: 1.8;
 }
 
 .sidebar__link:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--white);
+  background: #f6f5ff;
+  color: #6558f5;
 }
 
-.sidebar__link--active {
-  background: var(--green-600);
-  color: var(--white);
+.sidebar__link:hover svg {
+  color: #6558f5;
 }
 
+/* Active navigation — Figma purple */
+
+.sidebar__link--active,
 .sidebar__link--active:hover {
-  background: var(--green-700);
-  color: var(--white);
+  background: #efedff;
+  color: #6558f5;
+  font-weight: 600;
 }
+
+.sidebar__link--active svg {
+  color: #6558f5;
+  stroke-width: 2;
+}
+
+/* Footer */
 
 .sidebar__footer {
-  padding: 16px 12px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 12px;
-  color: var(--gray-400);
+  padding: 14px 10px 2px;
+  margin-top: auto;
+
+  border-top: 1px solid #edf0f6;
+
+  color: #9aa3b5;
+  font-size: 10px;
+  font-weight: 400;
 }
+
+/* Close button */
+
+.sidebar__close {
+  display: none;
+
+  align-self: flex-end;
+  padding: 6px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #65718a;
+
+  cursor: pointer;
+}
+
+.sidebar__close:hover {
+  background: #f1f0ff;
+  color: #6558f5;
+}
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+.dashboard--dark .sidebar {
+  background: #111c30;
+  color: #dce4f2;
+  border-right-color: #26344b;
+}
+
+.dashboard--dark .sidebar__brand,
+.dashboard--dark .sidebar__brand-name {
+  color: #f1f5fb;
+}
+
+.dashboard--dark .sidebar__brand-tag {
+  color: #94a3b8;
+}
+
+.dashboard--dark .sidebar__section-label {
+  color: #8492a8;
+}
+
+.dashboard--dark .sidebar__link {
+  background: transparent;
+  color: #b4c0d2;
+}
+
+.dashboard--dark .sidebar__link svg {
+  color: #94a3b8;
+}
+
+.dashboard--dark .sidebar__link:hover {
+  background: #202d48;
+  color: #b9b2ff;
+}
+
+.dashboard--dark .sidebar__link:hover svg {
+  color: #b9b2ff;
+}
+
+.dashboard--dark .sidebar__link--active,
+.dashboard--dark .sidebar__link--active:hover {
+  background: #302c59;
+  color: #c5bfff;
+}
+
+.dashboard--dark .sidebar__link--active svg {
+  color: #c5bfff;
+}
+
+.dashboard--dark .sidebar__footer {
+  border-top-color: #26344b;
+  color: #8492a8;
+}
+
+.dashboard--dark .sidebar__close {
+  color: #b4c0d2;
+}
+
+/* =========================================
+   TABLET AND MOBILE
+========================================= */
 
 @media (max-width: 900px) {
   .sidebar {
     position: fixed;
     inset: 0 auto 0 0;
-    z-index: 40;
+
+    width: 240px;
+    min-width: 240px;
+    height: 100vh;
+
     transform: translateX(-100%);
-    transition: transform 0.2s ease;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 8px 0 28px rgba(15, 23, 42, 0.12);
   }
 
   .sidebar--open {
     transform: translateX(0);
   }
-}
 
-/* ---------- Dark theme ---------- */
-
-.dashboard--dark {
-  --white: #101d2e;
-  --surface: #0b1420;
-  --gray-50: #0d1928;
-  --gray-100: #16263c;
-  --gray-200: #22334a;
-  --gray-300: #31465f;
-  --gray-400: #7d8fa5;
-  --gray-500: #94a5ba;
-  --gray-600: #b3c2d4;
-  --gray-700: #d4deea;
-  --navy-800: #f1f5f9;
-  background: var(--surface);
-}
-
-.dashboard--dark .header,
-.dashboard--dark .stat-card,
-.dashboard--dark .section,
-.dashboard--dark .panel,
-.dashboard--dark .task-card,
-.dashboard--dark .calendar-nav__button,
-.dashboard--dark .theme-option,
-.dashboard--dark .filter-tabs {
-  background: #101d2e;
-  border-color: #22334a;
-}
-
-.dashboard--dark .header__search-input,
-.dashboard--dark .field__input,
-.dashboard--dark .field__select,
-.dashboard--dark .field__textarea,
-.dashboard--dark .task-card__status-select,
-.dashboard--dark .task-list__priority-select select,
-.dashboard--dark .filter-tabs__tab--active {
-  background: #0d1928;
-  border-color: #31465f;
-  color: var(--gray-200);
-}
-
-.dashboard--dark .filter-tabs {
-  background: #0d1928;
-}
-
-.dashboard--dark .theme-option--active {
-  background: #0f2a22;
-}
-
-.dashboard--dark .calendar-grid__cell {
-  background: #101d2e;
-  border-color: #22334a;
-}
-
-.dashboard--dark .calendar-grid__cell--selected {
-  background: #0f2a22;
-}
-
-.dashboard--dark .deadline-item,
-.dashboard--dark .inbox-item,
-.dashboard--dark .calendar-task,
-.dashboard--dark .insights-item {
-  border-bottom-color: #1c2e46;
-}
-
-@media (min-width: 901px) {
   .sidebar__close {
-    display: none;
+    display: flex;
+  }
+
+  .sidebar__brand {
+    padding-bottom: 24px;
   }
 }
 
-.sidebar__close {
-  align-self: flex-end;
-  background: transparent;
-  border: none;
-  color: var(--gray-300);
-  padding: 6px;
-  border-radius: 6px;
-  margin-bottom: 8px;
-}
-
-.sidebar__close:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--white);
+@media (max-width: 480px) {
+  .sidebar {
+    width: 260px;
+    min-width: 260px;
+  }
 }

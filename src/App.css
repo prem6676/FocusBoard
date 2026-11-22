@@ -169,3 +169,420 @@
   background: #047857;
 }
 
+
+/* FocusBoard assessment dashboard */
+.dashboard__content { padding: 26px 30px 34px; gap: 0; background: #f6f7fc; }
+@media (max-width: 900px) { .dashboard__content { padding: 22px 22px 92px; } }
+@media (max-width: 640px) { .dashboard__content { padding: 18px 15px 92px; } }
+
+.overview-page { width: 100%; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 19px; }
+.overview-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 1px; }
+.overview-heading__eyebrow { margin-bottom: 7px; color: #a0a4b5; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
+.overview-heading h1 { color: #202b49; font-size: 23px; font-weight: 750; letter-spacing: -.04em; line-height: 1.2; }
+.overview-heading p:not(.overview-heading__eyebrow) { margin-top: 5px; color: #8a91a7; font-size: 11px; }
+.overview-heading__new { display: inline-flex; align-items: center; gap: 7px; padding: 9px 15px; border: 0; border-radius: 7px; color: white; background: #6558f5; font-size: 11px; font-weight: 700; box-shadow: 0 5px 12px rgba(101,88,245,.18); }
+.overview-heading__new:hover { background: #5144df; }
+.overview-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 13px; }
+.overview-tasks { padding: 17px 18px 12px; border: 1px solid #e9eaf2; border-radius: 12px; background: #fff; box-shadow: 0 2px 5px rgba(29,37,67,.025); }
+.overview-tasks__heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 13px; }
+.overview-tasks__heading h2 { color: #28334f; font-size: 14px; font-weight: 750; }
+.overview-tasks__heading p { margin-top: 3px; color: #9aa0b2; font-size: 10px; }
+.overview-tasks__view { border: 0; color: #6558f5; background: transparent; font-size: 10px; font-weight: 700; }
+.overview-tasks__view span { margin-left: 4px; font-size: 14px; }
+.overview-task-tools { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 11px; border-bottom: 1px solid #f0f0f5; }
+.overview-tabs { display: flex; align-items: center; gap: 5px; }
+.overview-tabs button { display: inline-flex; align-items: center; gap: 5px; padding: 6px 9px; border: 0; border-radius: 6px; color: #9298aa; background: transparent; font-size: 9px; font-weight: 600; white-space: nowrap; }
+.overview-tabs button span { color: #a6aabc; font-size: 8px; }
+.overview-tabs button.is-active { color: #6558f5; background: #f0eeff; }
+.overview-tabs button.is-active span { color: #6558f5; }
+.overview-task-filters { display: flex; align-items: center; gap: 7px; }
+.overview-task-search, .overview-priority-filter { display: flex; align-items: center; gap: 5px; min-width: 0; padding: 6px 8px; border: 1px solid #ececf3; border-radius: 6px; color: #a1a6b5; background: #fff; }
+.overview-task-search input { width: 110px; min-width: 0; border: 0; outline: 0; color: #515b73; background: transparent; font-size: 9px; }
+.overview-priority-filter select { max-width: 105px; border: 0; outline: 0; color: #737b91; background: transparent; font-size: 9px; }
+.overview-task-list { display: flex; flex-direction: column; gap: 0; }
+.overview-task-list .task-card { align-items: center; gap: 10px; padding: 11px 4px; border: 0; border-bottom: 1px solid #f0f1f6; border-radius: 0; box-shadow: none; }
+.overview-task-list .task-card:hover { transform: none; background: #fcfcff; box-shadow: none; }
+.overview-task-list .task-card__title { color: #34405d; font-size: 11px; }
+.overview-task-list .task-card__description { margin-top: 2px; font-size: 9px; }
+.overview-task-list .task-card__meta { margin-top: 5px; gap: 5px; }
+.overview-task-list .task-card .badge { padding: 3px 6px; font-size: 8px; }
+.overview-task-list .task-card__due { font-size: 9px; }
+.overview-task-list .task-card__actions { align-items: center; gap: 4px; }
+.overview-task-list .task-card__status-select { padding: 4px 5px; border-color: #ececf4; font-size: 8px; }
+.overview-task-list .task-card__action { width: 25px; height: 25px; border: 0; background: transparent; }
+.overview-empty { display: flex; flex-direction: column; align-items: center; gap: 7px; padding: 28px 12px; color: #8d94a8; text-align: center; }
+.overview-empty > span { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; color: #6558f5; background: #f0eeff; }
+.overview-empty strong { color: #34405d; font-size: 12px; }
+.overview-empty p { font-size: 10px; }
+.overview-empty button { display: inline-flex; align-items: center; gap: 5px; margin-top: 5px; padding: 7px 10px; border: 0; border-radius: 6px; color: white; background: #6558f5; font-size: 10px; }
+.overview-task-footnote { padding-top: 8px; color: #b0b4c2; font-size: 8px; text-align: right; }
+@media (max-width: 760px) {
+  .overview-page { gap: 15px; }
+  .overview-heading h1 { font-size: 21px; }
+  .overview-stats { gap: 9px; }
+  .overview-stats .stat-card { padding: 11px; }
+  .overview-task-tools { align-items: stretch; flex-direction: column; }
+  .overview-task-filters { justify-content: space-between; }
+  .overview-task-search { flex: 1; }
+  .overview-task-search input { width: 100%; }
+}
+@media (max-width: 480px) {
+  .overview-heading { align-items: flex-start; }
+  .overview-heading__new { padding: 8px 10px; font-size: 10px; }
+  .overview-stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .overview-stats .stat-card:last-child { grid-column: 1 / -1; }
+  .overview-stats .stat-card { min-height: 64px; }
+  .overview-tasks { padding: 14px 11px 10px; }
+  .overview-tasks__heading { align-items: flex-start; }
+  .overview-tabs { gap: 1px; }
+  .overview-tabs button { padding: 6px 7px; font-size: 8px; }
+  .overview-task-list .task-card { align-items: flex-start; flex-direction: column; }
+  .overview-task-list .task-card__actions { align-self: flex-end; }
+  .overview-task-list .task-card__meta { flex-wrap: wrap; }
+}
+.overview-task-row { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 11px 4px; border-bottom: 1px solid #f0f1f6; }
+.overview-task-row:last-child { border-bottom: 0; }
+.overview-task-row__mark { display: grid; place-items: center; width: 17px; height: 17px; flex: 0 0 17px; border: 1px solid #dedbff; border-radius: 6px; color: #fff; font-size: 10px; }
+.overview-task-row__mark.progress { border-color: #a9a0ff; background: #f0eeff; }
+.overview-task-row__mark.done { border-color: #20b98a; background: #20b98a; }
+.overview-task-row__main { display: flex; flex: 1; flex-direction: column; min-width: 0; gap: 2px; }
+.overview-task-row__main strong { overflow: hidden; color: #34405d; font-size: 10px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+.overview-task-row__main span { color: #9ba1b2; font-size: 8px; }
+.overview-task-row__main i { margin: 0 3px; font-style: normal; }
+.overview-task-row.is-completed .overview-task-row__main strong { color: #9ca3b3; text-decoration: line-through; }
+.overview-task-row__priority { min-width: 48px; padding: 3px 6px; border-radius: 5px; font-size: 8px; font-weight: 700; text-align: center; }
+.overview-task-row__priority.high { color: #e76b78; background: #fff0f1; }
+.overview-task-row__priority.medium { color: #c58a28; background: #fff8e8; }
+.overview-task-row__priority.low { color: #21a27c; background: #eafaf4; }
+.overview-task-row__date { display: inline-flex; align-items: center; gap: 4px; min-width: 72px; color: #969daf; font-size: 8px; }
+.overview-task-row select { max-width: 94px; padding: 4px 5px; border: 1px solid #ececf4; border-radius: 5px; color: #7d8498; background: #fff; font-size: 8px; }
+@media (max-width: 480px) {
+  .overview-task-row { flex-wrap: wrap; gap: 7px; }
+  .overview-task-row__main { flex-basis: calc(100% - 30px); }
+  .overview-task-row__priority { margin-left: 24px; }
+  .overview-task-row__date { min-width: 0; }
+  .overview-task-row select { margin-left: auto; }
+}
+
+
+/* -------------------------------------------------------
+   Readability refinements: overview typography
+   ------------------------------------------------------- */
+.overview-heading h1 { font-size: 28px; }
+.overview-heading p:not(.overview-heading__eyebrow) { font-size: 14px; line-height: 1.55; }
+.overview-heading__new { font-size: 13px; padding: 11px 17px; }
+.overview-tasks__heading h2 { font-size: 17px; }
+.overview-tasks__heading p { font-size: 12px; }
+.overview-tasks__view { font-size: 12px; }
+.overview-tabs button { font-size: 12px; padding: 8px 11px; }
+.overview-tabs button span { font-size: 10px; }
+.overview-task-search input,
+.overview-priority-filter select { font-size: 12px; }
+.overview-task-search,
+.overview-priority-filter { padding: 8px 10px; }
+.overview-task-row { padding: 14px 5px; gap: 12px; }
+.overview-task-row__main strong { font-size: 14px; }
+.overview-task-row__main span { font-size: 11px; }
+.overview-task-row__priority { font-size: 10px; min-width: 58px; }
+.overview-task-row__date { font-size: 11px; min-width: 88px; }
+.overview-task-row select { font-size: 11px; padding: 6px 7px; }
+.overview-empty strong { font-size: 15px; }
+.overview-empty p { font-size: 13px; }
+.overview-empty button { font-size: 12px; padding: 9px 12px; }
+.overview-task-footnote { font-size: 10px; }
+.overview-stats .stat-card__value { font-size: 26px; }
+.overview-stats .stat-card__label { font-size: 13px; }
+
+@media (max-width: 760px) {
+  .overview-heading h1 { font-size: 24px; }
+  .overview-heading p:not(.overview-heading__eyebrow) { font-size: 13px; }
+  .overview-task-row__main strong { font-size: 13px; }
+}
+@media (max-width: 480px) {
+  .overview-heading h1 { font-size: 22px; }
+  .overview-heading p:not(.overview-heading__eyebrow) { font-size: 12px; }
+  .overview-heading__new { font-size: 12px; }
+  .overview-tabs button { font-size: 10px; padding: 7px 8px; }
+  .overview-task-row__main strong { font-size: 13px; }
+  .overview-task-row__main span,
+  .overview-task-row__date { font-size: 10px; }
+}
+
+/* -------------------------------------------------------
+   Complete dark theme for the Figma-style overview
+   ------------------------------------------------------- */
+.dashboard--dark .dashboard__content {
+  background: #0b1220;
+}
+.dashboard--dark .overview-page {
+  color: #e5eaf5;
+}
+.dashboard--dark .overview-heading h1,
+.dashboard--dark .overview-tasks__heading h2,
+.dashboard--dark .overview-task-row__main strong {
+  color: #eef2ff;
+}
+.dashboard--dark .overview-heading p:not(.overview-heading__eyebrow),
+.dashboard--dark .overview-tasks__heading p,
+.dashboard--dark .overview-task-row__main span,
+.dashboard--dark .overview-task-row__date,
+.dashboard--dark .overview-task-footnote {
+  color: #9aa8bd;
+}
+.dashboard--dark .overview-tasks {
+  background: #111c2e;
+  border-color: #26364e;
+  box-shadow: 0 3px 12px rgba(0,0,0,.16);
+}
+.dashboard--dark .overview-task-tools,
+.dashboard--dark .overview-task-row {
+  border-color: #26364e;
+}
+.dashboard--dark .overview-tabs button {
+  color: #a8b4c8;
+}
+.dashboard--dark .overview-tabs button span {
+  color: #8292aa;
+}
+.dashboard--dark .overview-tabs button.is-active {
+  color: #c4bbff;
+  background: #29234f;
+}
+.dashboard--dark .overview-tabs button.is-active span {
+  color: #c4bbff;
+}
+.dashboard--dark .overview-task-search,
+.dashboard--dark .overview-priority-filter {
+  background: #0c1728;
+  border-color: #31435d;
+  color: #91a2bb;
+}
+.dashboard--dark .overview-task-search input,
+.dashboard--dark .overview-priority-filter select {
+  color: #e5eaf5;
+  background: transparent;
+}
+.dashboard--dark .overview-task-search input::placeholder {
+  color: #8292aa;
+}
+.dashboard--dark .overview-task-row__main strong {
+  color: #e8edf8;
+}
+.dashboard--dark .overview-task-row.is-completed .overview-task-row__main strong {
+  color: #8998ad;
+}
+.dashboard--dark .overview-task-row__priority.high {
+  color: #ff9da7;
+  background: #482632;
+}
+.dashboard--dark .overview-task-row__priority.medium {
+  color: #f6c66e;
+  background: #46371e;
+}
+.dashboard--dark .overview-task-row__priority.low {
+  color: #76dfbd;
+  background: #173c35;
+}
+.dashboard--dark .overview-task-row select {
+  color: #dce5f3;
+  background: #0c1728;
+  border-color: #31435d;
+}
+.dashboard--dark .overview-task-row__mark {
+  border-color: #465574;
+  background: #18263b;
+}
+.dashboard--dark .overview-task-row__mark.progress {
+  border-color: #887cf4;
+  background: #302b60;
+}
+.dashboard--dark .overview-task-row__mark.done {
+  border-color: #20b98a;
+  background: #168565;
+}
+.dashboard--dark .overview-empty {
+  color: #a8b4c8;
+}
+.dashboard--dark .overview-empty > span {
+  color: #c4bbff;
+  background: #29234f;
+}
+.dashboard--dark .overview-empty strong {
+  color: #eef2ff;
+}
+.dashboard--dark .overview-empty p {
+  color: #9aa8bd;
+}
+.dashboard--dark .overview-heading__new,
+.dashboard--dark .overview-empty button {
+  color: #fff;
+  background: #6558f5;
+}
+.dashboard--dark .overview-heading__new:hover,
+.dashboard--dark .overview-empty button:hover {
+  background: #5144df;
+}
+
+/* Keep the purple active navigation readable in dark mode */
+.dashboard--dark .sidebar__link--active,
+.dashboard--dark .sidebar__link--active:hover {
+  color: #e8e5ff;
+  background: #39316f;
+}
+.dashboard--dark .sidebar__link--active svg {
+  color: #c4bbff;
+}
+.dashboard--dark .sidebar {
+  background: #091321;
+  border-color: #22334a;
+}
+.dashboard--dark .header {
+  background: #101d2e;
+  border-color: #26364e;
+}
+.dashboard--dark .header__breadcrumb,
+.dashboard--dark .header__breadcrumb strong {
+  color: #aebbd0;
+}
+.dashboard--dark .header__avatar {
+  color: #e8e5ff;
+  background: #39316f;
+}
+.dashboard--dark .header__menu {
+  color: #dce5f3;
+  background: #101d2e;
+  border-color: #31435d;
+}
+@media (max-width: 640px) {
+  .dashboard--dark .sidebar,
+  .dashboard--dark .sidebar.sidebar--open {
+    background: rgba(12, 23, 40, .97);
+    border-top-color: #26364e;
+  }
+  .dashboard--dark .sidebar__link {
+    color: #9aa8bd;
+  }
+  .dashboard--dark .sidebar__link--active,
+  .dashboard--dark .sidebar__link--active:hover {
+    color: #d8d2ff;
+    background: #29234f;
+  }
+}
+
+/* =========================================
+   FOCUSBOARD — GLOBAL DARK MODE
+========================================= */
+
+/* Dashboard background and shared theme variables */
+.dashboard--dark {
+  --white: #111c2e;
+  --surface: #0b1220;
+
+  --gray-50: #111c2e;
+  --gray-100: #172438;
+  --gray-200: #293950;
+  --gray-300: #394b63;
+  --gray-400: #9aa8bd;
+  --gray-500: #aab7ca;
+  --gray-600: #c1ccdc;
+  --gray-700: #e5eaf5;
+
+  color: #e5eaf5;
+  background: #0b1220;
+}
+
+.dashboard--dark .dashboard__main {
+  background: #0b1220;
+}
+
+.dashboard--dark .dashboard__content {
+  background: #0b1220;
+  color: #e5eaf5;
+}
+
+/* Shared sections and cards */
+.dashboard--dark .section,
+.dashboard--dark .page-placeholder,
+.dashboard--dark [class*="card"],
+.dashboard--dark [class*="panel"] {
+  background-color: #111c2e;
+  border-color: #293950;
+  color: #e5eaf5;
+}
+
+/* Headings and descriptions */
+.dashboard--dark .page-heading__title,
+.dashboard--dark .section__title,
+.dashboard--dark .page-placeholder h1,
+.dashboard--dark .page-placeholder h2,
+.dashboard--dark [class*="card"] h2,
+.dashboard--dark [class*="card"] h3,
+.dashboard--dark [class*="panel"] h2,
+.dashboard--dark [class*="panel"] h3 {
+  color: #eef2ff;
+}
+
+.dashboard--dark .page-heading__subtitle,
+.dashboard--dark .page-placeholder p {
+  color: #aab7ca;
+}
+
+/* Inputs, search fields and dropdowns */
+.dashboard--dark input,
+.dashboard--dark select,
+.dashboard--dark textarea {
+  color: #e5eaf5;
+  background-color: #0c1728;
+  border-color: #394b63;
+}
+
+.dashboard--dark input::placeholder,
+.dashboard--dark textarea::placeholder {
+  color: #8292aa;
+}
+
+.dashboard--dark select option {
+  color: #e5eaf5;
+  background: #111c2e;
+}
+
+/* Tables */
+.dashboard--dark table,
+.dashboard--dark th,
+.dashboard--dark td {
+  color: #dce5f3;
+  border-color: #293950;
+}
+
+.dashboard--dark th {
+  background: #172438;
+}
+
+/* Task cards and lists */
+.dashboard--dark .task-card,
+.dashboard--dark .task-list,
+.dashboard--dark .task-item {
+  background: #111c2e;
+  border-color: #293950;
+  color: #e5eaf5;
+}
+
+.dashboard--dark .task-card__title,
+.dashboard--dark .task-item__title {
+  color: #eef2ff;
+}
+
+.dashboard--dark .task-card__description {
+  color: #aab7ca;
+}
+
+/* Page placeholder */
+.dashboard--dark .page-placeholder button {
+  background: #6558f5;
+  color: #ffffff;
+}
+
+.dashboard--dark .page-placeholder button:hover {
+  background: #5144df;
+}
+
