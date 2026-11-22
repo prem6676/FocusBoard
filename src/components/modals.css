@@ -1,0 +1,232 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(13, 27, 42, 0.55);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  animation: modal-in 0.18s ease-out;
+}
+
+.modal--danger {
+  max-width: 420px;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+}
+
+.modal__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.modal__close {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--gray-500);
+}
+
+.modal__close:hover {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.modal__body {
+  padding: 16px 24px 4px;
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--primary {
+  background: var(--green-600);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background: var(--green-700);
+}
+
+.btn--secondary {
+  background: var(--white);
+  color: var(--gray-600);
+  border-color: var(--gray-300);
+}
+
+.btn--secondary:hover {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.btn--danger {
+  background: var(--red-600);
+  color: var(--white);
+}
+
+.btn--danger:hover {
+  background: var(--red-600);
+  filter: brightness(0.94);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.field__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.field__hint {
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+.field__input,
+.field__select,
+.field__textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--gray-700);
+  background: var(--white);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field__textarea {
+  resize: vertical;
+  min-height: 88px;
+}
+
+.field__input:hover,
+.field__select:hover,
+.field__textarea:hover {
+  border-color: var(--gray-400);
+}
+
+.field__input:focus,
+.field__select:focus,
+.field__textarea:focus {
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.field__input--invalid,
+.field__select--invalid {
+  border-color: var(--red-500);
+}
+
+.field__input--invalid:focus,
+.field__select--invalid:focus {
+  border-color: var(--red-500);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.field__error {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--red-600);
+}
+
+.field__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.confirm-dialog__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--red-50);
+  color: var(--red-600);
+  display: grid;
+  place-items: center;
+  margin: 4px auto 14px;
+}
+
+.confirm-dialog__text {
+  text-align: center;
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.confirm-dialog__text strong {
+  color: var(--gray-700);
+}
+
+@media (max-width: 480px) {
+  .field__row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal__footer {
+    flex-direction: column-reverse;
+  }
+
+  .modal__footer .btn {
+    width: 100%;
+  }
+}
