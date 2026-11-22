@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Plus } from 'lucide-react';
 import StatCard from '../components/StatCard';
-import FocusNotes from '../components/FocusNotes';
 import FilterTabs from '../components/FilterTabs';
 import TaskList from '../components/TaskList';
 import TaskForm from '../components/TaskForm';
@@ -142,7 +141,6 @@ export default function MyTasks({
         </div>
       </section>
 
-      <FocusNotes />
 
       <section className="panel" aria-label="Tasks">
         <div className="panel__heading">

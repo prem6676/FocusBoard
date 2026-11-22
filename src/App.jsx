@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Bell, Plus, Search, Menu, X } from 'lucide-react';
+import { Search, X, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { usePreferences } from './hooks/usePreferences';
@@ -54,18 +54,14 @@ export default function App() {
 
       <div className="dashboard__main">
         <Header
+          activePage={activePage}
           search={search}
           onSearchChange={(value) => {
             setSearch(value);
             if (value.trim()) navigate('My Tasks');
           }}
-          onNewTask={() => {
-            navigate('My Tasks');
-            setCreateTaskRequest((current) => current + 1);
-          }}
-          onMenuClick={() => setMenuOpen(true)}
-          onNotifications={() => navigate('Inbox')}
           onProfile={() => navigate('Settings')}
+          onMenuClick={() => setMenuOpen(true)}
           displayName={preferences.displayName}
         />
 
@@ -76,6 +72,10 @@ export default function App() {
               preferences={preferences}
               onNavigate={navigate}
               onStatusChange={handleStatusChange(setTasks)}
+              onNewTask={() => {
+                navigate('My Tasks');
+                setCreateTaskRequest((current) => current + 1);
+              }}
             />
           )}
           {activePage === 'My Tasks' && (
@@ -115,72 +115,24 @@ function handleStatusChange(setTasks) {
   };
 }
 
-function Header({ search, onSearchChange, onNewTask, onMenuClick, onNotifications, onProfile, displayName }) {
-  const initials = displayName
-    .split(' ')
-    .map((part) => part[0])
-    .slice(0, 2)
-    .join('')
-    .toUpperCase();
-
+function Header({ activePage, search, onSearchChange, onProfile, onMenuClick, displayName }) {
+  const initials = displayName.split(' ').map((part) => part[0]).slice(0, 2).join('').toUpperCase();
   return (
     <header className="header">
-      <button
-        type="button"
-        className="header__menu"
-        onClick={onMenuClick}
-        aria-label="Open navigation menu"
-      >
-        <Menu size={20} />
-      </button>
-
-      <div className="header__search">
-        <Search size={16} className="header__search-icon" aria-hidden="true" />
-        <label htmlFor="task-search" className="sr-only">
-          Search tasks by title
-        </label>
-        <input
-          id="task-search"
-          type="search"
-          className="header__search-input"
-          placeholder="Search tasks by title..."
-          value={search}
-          onChange={(event) => onSearchChange(event.target.value)}
-          autoComplete="off"
-        />
-        {search && (
-          <button
-            type="button"
-            className="header__search-clear"
-            onClick={() => onSearchChange('')}
-            aria-label="Clear search"
-          >
-            <X size={14} />
-          </button>
-        )}
-      </div>
-
+      <button type="button" className="header__menu" onClick={onMenuClick} aria-label="Open navigation menu"><Menu size={18} /></button>
+      <div className="header__breadcrumb"><span>Workspace</span><span className="header__breadcrumb-separator">/</span><strong>{activePage === 'Dashboard' ? 'Overview' : activePage}</strong></div>
+      {activePage === 'My Tasks' && (
+        <div className="header__search">
+          <Search size={16} className="header__search-icon" aria-hidden="true" />
+          <label htmlFor="task-search" className="sr-only">Search tasks by title</label>
+          <input id="task-search" type="search" className="header__search-input" placeholder="Search tasks by title..." value={search}
+            onChange={(event) => onSearchChange(event.target.value)} autoComplete="off" />
+          {search && <button type="button" className="header__search-clear" onClick={() => onSearchChange('')} aria-label="Clear search"><X size={14} /></button>}
+        </div>
+      )}
       <div className="header__spacer" />
-
-      <button type="button" className="header__icon-button" aria-label="Open inbox notifications" onClick={onNotifications}>
-        <Bell size={18} />
-        <span className="header__notification-dot" aria-hidden="true" />
-      </button>
-
       <button type="button" className="header__profile" aria-label={`Account settings for ${displayName}`} onClick={onProfile}>
-        <span className="header__avatar" aria-hidden="true">
-          {initials}
-        </span>
-        <span>
-          <span className="header__profile-name">{displayName}</span>
-          <br />
-          <span className="header__profile-role">Product Manager</span>
-        </span>
-      </button>
-
-      <button type="button" className="header__new-task" onClick={onNewTask}>
-        <Plus size={18} aria-hidden="true" />
-        <span>New Task</span>
+        <span className="header__avatar" aria-hidden="true">{initials}</span>
       </button>
     </header>
   );

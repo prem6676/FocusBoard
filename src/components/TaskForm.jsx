@@ -119,20 +119,6 @@ export default function TaskForm({ task, onSubmit, onCancel, defaultPriority = P
               />
             </div>
 
-            <div className="field">
-              <label className="field__label" htmlFor="task-category">
-                Category
-              </label>
-              <input
-                id="task-category"
-                type="text"
-                className="field__input"
-                value={form.category}
-                onChange={handleChange('category')}
-                placeholder="e.g. Design, Marketing, Bug"
-              />
-            </div>
-
             <div className="field__row">
               <div className="field">
                 <label className="field__label" htmlFor="task-status">

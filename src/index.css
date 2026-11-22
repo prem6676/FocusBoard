@@ -93,3 +93,15 @@ textarea {
 ::placeholder {
   color: var(--gray-400);
 }
+
+/* Assessment palette: violet accent from the supplied FocusBoard Figma */
+:root {
+  --purple-50: #f3f1ff;
+  --purple-100: #e8e5ff;
+  --purple-600: #6558f5;
+  --green-500: #6558f5;
+  --green-600: #5b4de8;
+  --green-700: #4d40d2;
+  --sidebar-width: 206px;
+  --surface: #f6f7fc;
+}

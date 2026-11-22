@@ -71,3 +71,10 @@
   background: var(--green-500);
   transition: width 0.3s ease;
 }
+
+.overview-stats .stat-card { min-height: 72px; padding: 14px 16px; gap: 12px; border-radius: 11px; }
+.overview-stats .stat-card__icon { width: 34px; height: 34px; border-radius: 9px; }
+.overview-stats .stat-card__value { font-size: 22px; }
+.overview-stats .stat-card__label { font-size: 11px; }
+.overview-stats .stat-card__icon--progress { background: #fff8e8; color: #e7a12b; }
+.overview-stats .stat-card__icon--completed { background: #eafaf4; color: #18a77b; }

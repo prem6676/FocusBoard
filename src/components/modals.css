@@ -230,3 +230,13 @@
     width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .modal-overlay { padding: 10px; align-items: center; }
+  .modal { max-height: calc(100dvh - 20px); border-radius: 13px; }
+  .modal__header { padding: 16px 17px 0; }
+  .modal__body { padding: 13px 17px 2px; }
+  .modal__footer { padding: 13px 17px 17px; }
+  .field { margin-bottom: 12px; }
+  .field__input, .field__select, .field__textarea { font-size: 13px; }
+}
