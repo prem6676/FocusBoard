@@ -1,3 +1,4 @@
+
 # FocusBoard
 
 FocusBoard is a professional, fully functional task management dashboard built as a frontend developer technical assignment. It demonstrates React fundamentals, reusable components, state management, CRUD operations, filtering, search, localStorage persistence, responsive design, and clean code architecture.
@@ -91,3 +92,4 @@ npm run build
 ```
 
 The output in `dist/` is a static site. Deploy it to any static host (Vercel, Netlify, GitHub Pages, Cloudflare Pages, etc.) by uploading the `dist/` folder or connecting the repository and running `npm run build` as the build step.
+
