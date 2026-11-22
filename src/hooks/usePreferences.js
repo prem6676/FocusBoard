@@ -2,7 +2,7 @@ import { useLocalStorage } from './useLocalStorage';
 import { TASK_PRIORITIES } from '../data/taskOptions';
 
 const DEFAULT_PREFERENCES = {
-  displayName: 'Alex Morgan',
+  displayName: 'Prem Kumar',
   theme: 'light',
   defaultPriority: TASK_PRIORITIES[1],
 };
